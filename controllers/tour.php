@@ -5,7 +5,7 @@ class TourController extends Controller {
     private $tour;
  
     public function on_start() {
-        $this->tour = new TourModel();
+        $this->tour = new TourType();
     }
   
 }

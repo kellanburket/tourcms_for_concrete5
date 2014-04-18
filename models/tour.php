@@ -1,6 +1,6 @@
 <?php 
 
-public class TourModel {
+public class TourType {
  
     /** 
      * Gets the contents of our cart, in a list of IDs
@@ -9,12 +9,6 @@ public class TourModel {
         return $_SESSION['tour'];
     }
  
-    /** 
-     * Adds a product ID to the cart
-     */
-    public function add($tour_id) {
-        $_SESSION['tour'][] = $tour_id;
-    }
  
     /** 
      * Removes a particular product ID from 

@@ -1,8 +1,8 @@
 <?php
 defined('C5_EXECUTE') or die(_("Access Denied."));
-define("TOURCMS_SINGLE", "tour");
-define("TOURCMS_SUBGROUP", "tour_subgroup");
-define("TOURCMS_GROUP", "tour_group");
+define("TOURCMS_SINGLE", "tour_single");
+define("TOURCMS_SUBGROUP", "tour_subgrouping");
+define("TOURCMS_GROUP", "tour_grouping");
 
 class TourcmsCustomWidgetsPackage extends Package {
 
@@ -66,43 +66,46 @@ class TourcmsCustomWidgetsPackage extends Package {
      }
      
      public function install() {
-          $pkg = parent::install();
-		            
-		  BlockType::installBlockTypeFromPackage('calendar_widget', $pkg); 
-		  
-		  BlockType::installBlockTypeFromPackage('subtours_widget', $pkg); 
-		  
-		  Loader::model('collection_types');
-		  Loader::model('collection_attributes');
-		  Loader::model('attribute/categories/collection');
-		  
-		  $collections = array(TOURCMS_SINGLE=>"Single Tour", TOURCMS_GROUP=>"Tour Grouping", TOURCMS_SUBGROUP=>"Tour Subgrouping");
-		  
-		  foreach ($collections as $collection_handle=>$collection_name) {		  
-			  $collection = CollectionType::getByHandle($collection_handle);
-			  if(!$collection || !intval($collection->getCollectionTypeID())) { 
-	          	$collection = CollectionType::add(array('ctHandle'=>$collection_handle,'ctName'=>t($collection_name)), $pkg);
-			   
-			  	$eaku = AttributeKeyCategory::getByHandle('collection');
-			  	$eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
-				$themeSet = $eaku->addSet('built_in', t('Categories Atributes'), $pkg);
-				  
-				$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
-				$ak1=CollectionAttributeKey::add($collection_handle, $args, $pkg)->setAttributeSet($themeSet);
-
-				$pageType = CollectionType::getByHandle($collection_handle);
-				$ak = CollectionAttributeKey::getByHandle('tour_id');
-				$pageType->assignCollectionAttribute($ak);
+		$pkg = parent::install();
+		        
+		BlockType::installBlockTypeFromPackage('calendar_widget', $pkg); 
 		
-				$args = array('akHandle'=>'tour_version_id','akName'=>t('Tour Version ID'),'akIsSearchable'=>true);
-				$ak1=CollectionAttributeKey::add($collection_handle, $args, $pkg)->setAttributeSet($themeSet);
+		BlockType::installBlockTypeFromPackage('subtours_widget', $pkg); 
+		//$allowSets = false;
+		//AttributeKeyCategory::add('widget', $allowSets, $pkg);		  
+		Loader::model('collection_types');
+		Loader::model('collection_attributes');
+		Loader::model('attribute/categories/collection');
+		
+		$collections = array(TOURCMS_SINGLE=>"Single Tour", TOURCMS_GROUP=>"Tour Grouping", TOURCMS_SUBGROUP=>"Tour Subgrouping");
 
+		$eaku = AttributeKeyCategory::getByHandle('collection');
+		$eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
+		$themeSet = $eaku->addSet('built_in', t('Categories Atributes'), $pkg);
+	
+		$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
+		CollectionAttributeKey::add('text', $args, $pkg)->setAttributeSet($themeSet);
+					
+		$args = array('akHandle'=>'tour_version_id','akName'=>t('Tour Version ID'),'akIsSearchable'=>true);
+		CollectionAttributeKey::add('text', $args, $pkg)->setAttributeSet($themeSet);
+					
+		foreach ($collections as $collection_handle=>$collection_name) {		  
+			$collection = CollectionType::getByHandle($collection_handle);
+			if(!$collection || !intval($collection->getCollectionTypeID())) { 
+				
+				$collection = CollectionType::add(array('ctHandle'=>$collection_handle,'ctName'=>t($collection_name)), $pkg);
+				
 				$pageType = CollectionType::getByHandle($collection_handle);
-				$ak = CollectionAttributeKey::getByHandle('tour_version_id');
-				$pageType->assignCollectionAttribute($ak);
+				$attribute_key = CollectionAttributeKey::getByHandle('tour_id');
+				$pageType->assignCollectionAttribute($attribute_key);
+					
+				$pageType = CollectionType::getByHandle($collection_handle);
+				$attribute_key = CollectionAttributeKey::getByHandle('tour_version_id');
+				$pageType->assignCollectionAttribute($attribute_key);
+
 			}
 		}
-		  
+		  	
 
 
 	}

@@ -1,0 +1,16 @@
+<xml version="1.0">
+   <table name="atTourSettings">
+    <field name="akID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED />
+    </field>
+    <field name="akDateDisplayMode" type="C" size="255" />
+  </table>
+  <table name="atTour">
+    <field name="avID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED />
+    </field>
+    <field name="tour_id" type="I" size="10">
+    </field>
+  </table>
