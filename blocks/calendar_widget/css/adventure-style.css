@@ -1,0 +1,728 @@
+
+@import url(http://fonts.googleapis.com/css?family=Coustard);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800);
+
+/* booking engine */
+#booking-iframe {
+    width: auto;
+    height: auto;
+}
+
+/* sidebar css */
+
+#sb-tour-widget-wrap {
+	border: 1px solid #dddddd;
+	padding: 20px;
+	background: radial-gradient(ellipse at center, #feffff 67%, #e3eef2 100%);
+	width: 360px;
+	display: inline-block;	
+}
+
+.sb-tour-h4 {
+	background: #46B3DD; 
+	color: #fff; 
+	padding: 10px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 2em;
+	text-align: center;
+}
+
+.sb-tour-description {
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2em;
+	line-height: 1.7em;
+}
+
+.sb-tour-thumbnail {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.sb-tour-switcher {
+	margin: 20px 2px;
+	border-radius: 5px;
+	box-shadow: 0 0 6px #c3c3c3;
+	box-sizing: border-box;
+	min-height: 240px;
+	background: #e3e3e3;
+	position: relative;
+}
+
+.sb-tour-tabs {
+	list-style: none;
+	background: #e3e3e3; 
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+}
+
+.sb-tour-tab {
+	font-weight: 800;
+	border-bottom: 1px solid #ededed;
+	padding: 20px 5px 20px 10px;
+	color: #777;
+	font-family: "Open Sans", sans-serif;	
+	font-size: 1.2em;
+	margin: 0;
+
+}
+
+.mini-divider {
+    height: 1px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0px 10x 15px;
+    background-color: #ededed;
+}
+
+.sb-tour-ul-wrap {
+	background: #e3e3e3;
+	height: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 30%;
+	vertical-align: top;
+	min-height: 240px;
+}
+
+.sb-tour-tab-frame {
+	display: inline-block;
+	width: 69%;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.1em;
+	border-left: 1px solid #ededed;
+	padding: 4%;
+	height: 100%;
+	min-height: 240px;
+	background: #ffffff;
+}
+
+#tab-frame-2, #tab-frame-3 {
+	display: none;
+}
+
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent; 	
+	border-right:15px solid white; 
+	position: absolute;
+	top: 1em;
+	left: 7.5em;
+}
+
+#sb-tour-back-one {
+    font-size: 1.4em;
+    padding: 0 10px;
+    margin: 0;
+    border: none;
+    background: none;
+    float: left;
+}
+
+#sb-tour-forward-one {
+    font-size: 1.4em;
+    padding: 0 10px;
+    border: none;
+    background: none;
+    float: right;
+}
+
+.sb-tour-h5 {
+	background: #46B3DD;
+	color: white;
+	text-transform: uppercase;
+	font-family: "Open Sans", sans-serif;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.3em;
+}
+
+#sb-tour-month {
+    font-family: "Open Sans";
+    font-size: 1.4em;
+}
+
+.divider {
+	font-size: 16px;
+    font-weight: 400;
+    background-color: #ededed;
+    padding-right: 10px;
+    display: inline-block;
+    width: 100%;
+    padding: 0 3px;
+	height: 1px;
+    vertical-align: middle;
+    margin: 20px 0;
+}
+
+#sb-tour-pick-a-date-wrapper {
+	position: relative;
+	
+}
+
+#sb-tour-calendar {
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	display: block;
+}
+
+#tourcms-sidebar-table {
+	text-align: center;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	border-spacing: 2px;
+	border-collapse: separate;
+}
+
+
+.sb-tour-field {
+}
+
+td.tourcms-sidebar-td {
+	width: 50px;
+	text-align: center;
+	height: 50px;
+	font-size: 1.2em;
+}
+
+.availability-key {
+    text-align: right;
+}
+
+.a-key-li {
+	display: inline-block;
+    margin-left: 5%;
+    vertical-align: baseline;
+    font-family: "Open Sans"
+}
+
+#selected-key {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: baseline;
+    margin-left: 5px;
+    background-color:#1D9FE6;
+}
+
+#available-key{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: baseline;
+    margin-left: 5px;
+    background-color:white;
+    border: 1px solid gray;
+}
+
+#unavailable-key{
+   display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: baseline;
+    margin-left: 5px;
+    background-color:gray;
+    opacity: .4;
+}
+
+
+.sb-tour-guests-label {
+    display: inline-block;
+    font-family: "Open Sans";
+    margin-top: -10px;
+}
+
+.sb-guests-input {
+}
+
+#sb-tour-activity-date-field {
+    float: right;
+    clear: both;
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 10px 0;
+}
+
+#activity-date-lb {
+    display: inline-block;
+    vertical-align: top;
+}
+.sb-tour-p {
+    font-family: "Open Sans";
+}
+
+
+#sb-available-upgrades {
+    font-family: "Open Sans";
+}
+
+#sb-submit {
+	float: right;
+	padding: 15px;
+	font-family: "Open Sans";
+}
+
+.sb-booking-li {
+    font-family: "Open Sans";
+}
+.sb-booking-ul {
+    list-style: none;
+    text-align: right;
+}
+
+#sb-total-price {
+    text-align: right;
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 1.8em;
+}
+
+#sb-tour-refund {
+    font-family: "Open Sans";
+    margin: 12px 0;
+}
+
+#sb-available-upgrades {
+    width: 100%;
+}
+
+.sb-confirm-field {
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 1px #cccccc;
+    padding-left: 10px;
+    margin-right: 0!important;
+    display: inline-block;
+    font-family: "Open Sans";
+    width: 120px;
+    float: right;    
+}
+
+.sb-tour-upgrades-tr {
+}
+.sb-tour-upgrades-td {
+    width: 33%;
+    padding-top: 6px;
+}
+
+
+#sb-available-upgrades > tbody > tr > td {
+	text-align: center;
+}
+
+#sb-promo-label {
+    display: inline-block;
+    margin: 0;
+}
+
+#promo-code-input {
+}
+
+/* footer css */
+
+#adventure-widget-wrap {
+	display: inline-block;
+	margin-left: 30px;
+}
+
+#adventure-widget-wrap > .footertitle {
+	float: none;
+	display: block;
+}
+
+#adventure-widget-wrap > .footertitle > h4 {
+	float: none;
+	display: block;
+}
+
+.choose-your-adventure-widget {
+	display: block;
+	height: 570px;
+	width: 270px;	
+	box-sizing: border-box;
+	background-color: #1D9FE6;
+	padding: 7px 10px;
+	border: 2px solid #FAFEFF;
+	box-shadow: 2px 2px 10px 1px #001F55;
+	-webkit-box-shadow: 2px 2px 10px 1px #001F55;
+	-moz-box-shadow: 2px 2px 10px 1px #001F55;
+}
+
+.adventure-h4 {
+	font-family: "Coustard", serif;
+	color: white!important;
+	text-transform: capitalize;
+	text-shadow: 2px 2px black;
+	text-align: center;
+	font-size: 1.7em;
+	font-weight: 900;
+	padding-top: 15px
+}
+
+.adventure-h5, .confirm-booking-h5 {
+	font-family: "Coustard", serif;
+	color: white!important;
+	text-transform: capitalize;
+	text-align: center;
+	font-size: 1.4em;
+	line-height: 1.5em;
+	font-weight: 400;
+	letter-spacing: .1em;
+	text-shadow: 0px 0px 1px #B2DAFF;
+}
+
+#datepicker {
+	background-color: white;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 3px;
+	-webkit-box-shadow:	1px 1px 3px;
+	-moz-box-shadow: 1px 1px 3px;
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.datepicker-h6 {
+	vertical-align: baseline;
+	color: #169fd8;
+	font-family: 'Oxygen';
+	text-transform: capitalize;
+	margin-bottom: 5px;
+	margin-top: 10px
+}
+
+.datepicker-field, .confirm-field, .sb-tour-field {
+	border: 1px solid #51AEEC !important;
+	box-shadow: inset 0px 0px 13px #B2DAFF !important;
+	border-radius: 3px !important;
+	height: 35px !important;
+	font-weight: bold;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+.tour-widget {
+	width: auto;
+	height: auto;
+	display: inline-block;
+	float: right;
+}
+
+#datepicker {
+	display: inline-block;
+	float: right;
+}
+
+
+
+#calendar-button {
+	display: inline-block;
+	width: 50px;
+	vertical-align: top;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 0;
+}
+
+#calendar-button > img {
+	height: 35px;
+	width: auto;
+	max-width: none;
+	vertical-align: top;
+	
+}
+
+#activity-date-field {
+	display: inline-block;
+	width: 76%;
+	vertical-align: top;
+}
+		
+#datepicker-adults {
+	margin-top: 10px;
+}
+
+.guests-input {
+	display: inline-block!important;
+	width:  50px!important;	
+}
+
+.guests-label {
+	font-size: 1.8em;
+	font-family: "Oxygen";
+	font-wight: 800;
+	padding-left: 5px;
+}
+
+#adults-label {
+	color: #236FAC;
+}
+
+#children-label {
+	color: #D32092;
+}
+
+#promo-label {
+	margin-bottom: 5px;
+	color: black;
+	font-weight: bold;
+}
+
+#datepicker-submit-div {
+	display: block;
+}
+
+#submit {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* calendar */
+#pop-up-calendar {
+	display: none;
+	position: absolute;
+	margin-left: 100px;
+	background-color: #eeeeee;
+	border: 4px solid #dddddd;
+	border-radius: 10px;
+	z-index: 900;
+}
+
+#datepicker-head {
+	width: auto;
+	background-color: #f6a828;
+	border: 1px solid #e78f08;
+	font-size: .8em;
+	text-align: center;
+	box-shadow: inset 0px 0px 3px white;
+	border-radius: 10px;
+	color: white;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+}
+
+.datepicker-button {
+
+}
+
+#datepicker-forward-one {
+	float: right;
+}
+#datepicker-back-one {
+	float: left;
+}
+
+tbody {
+	margin: 0 auto;
+	display: block;
+	position: relative;
+}
+
+#datepicker-month {
+	padding: 0 20px;
+}
+
+#datepicker-table {
+	margin: 0 auto;
+	display: block;
+	border-spacing: 2px;
+	border-collapse: separate;
+}
+
+.datepicker-td {
+	width: 18px;
+	text-align: center;
+}
+
+.date_any {
+	border-radius: 2px;
+	margin: 1px;
+	padding: 2px;
+	border: 1px solid #cccccc;
+	font-size: .7em;
+	text-align: right;
+}
+
+.date_today {
+}
+.date_past, .unavailable {
+	opacity: .35;
+	color: #777;
+}
+
+.date_selected {
+    background-color: #1D9FE6;
+    color: white;
+}
+
+.available {
+
+	cursor: pointer;
+	color: #1c94c4;
+}
+
+.unavailable {
+	background-color: gray;
+	color: black;
+}
+
+#datepicker-pick-a-date-wrapper {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+}
+
+
+
+/* Modal/Overlay */
+
+#booking-box {
+	background-color: blue;
+	position: relative;
+	color: white;
+	padding: 20px;
+	margin: 0 auto;
+	border-radius: 20px;
+	background-color: #1D9FE6;
+	border: 2px solid #FAFEFF;
+	box-shadow: 2px 2px 10px 1px #001F55;
+	-webkit-box-shadow: 2px 2px 10px 1px #001F55;
+	-moz-box-shadow: 2px 2px 10px 1px #001F55;
+}
+
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	opacity: .7;
+	filter: alpha(opacity=70);
+	background-color: black;
+}
+
+#modal, #modal-content, #booking-box {
+	width: 600px;
+	height: auto;
+	box-sizing: border-box;
+}
+
+#modal {
+	z-index: 20;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	border-radius:14px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#modal-content {
+	position: relative;
+	margin: 0 auto;
+}
+
+#modal-close {
+    position:absolute;
+    width:24px;
+    height:27px;
+    display:block;
+    text-indent:-9999px;
+    top:-7px;
+    right:-7px;
+}
+
+.review-booking-block {
+	vertical-align: top;
+	display: inline-block;
+	width: 48%;
+}
+
+#review-booking-table {
+	width: 75%;
+	height: auto;
+	margin: 0 auto;
+	display: block;
+}
+
+.booking-td {
+	padding-right: 50px;
+}
+
+.confirm-field {
+	display: inline-block!important;
+	width: 200px!important;
+	float: right;
+	
+}
+
+.confirm-booking-h5 {
+	color: #fb9f1a!important;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.confirm-label {
+	display: inline-block;
+	padding-right: 35px;
+	padding-left: 5px;
+}
+
+#extra-information {
+	margin-top: 20px;	
+}
+
+.checkout-title {
+	margin-top: 100px;
+}
+
+#available-upgrades {
+	
+}
+#available-upgrades > tbody > tr > td {
+	padding-right: 50px;
+}
+
+.boarding-div {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+#submit-div {
+	padding: 20px;
+	display: block;
+	width: 100%;
+	height: auto;
+	position: relative;
+	box-sizing:border-box;
+}
+
+#confirm-booking {
+	float: right;
+	position: relative;
+	padding: 5px;
+	box-sizing:border-box;
+}
+
+.hotel-room-confirm-fields {
+	width: 345px;
+}
+
+#ajax-loader-gif {
+	display: block;
+	margin: 0 auto;
+}

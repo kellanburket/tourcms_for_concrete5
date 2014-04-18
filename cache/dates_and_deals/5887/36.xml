@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<request>GET /c/tour/datesprices/datesndeals/search.xml?id=36&amp;distinct_start_dates=1</request>
+<error>OK</error>
+<total_date_count>1</total_date_count>
+<channel_id>5887</channel_id>
+<account_id>5906</account_id>
+<tour_id>36</tour_id>
+<dates_and_prices><date>
+<start_date>2014-02-14</start_date>
+<end_date>2014-02-17</end_date>
+<date_code/>
+<note>Confirm at 520-622-8811</note>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>50</spaces_remaining>
+<special_offer_type>0</special_offer_type>
+<status>OPEN</status>
+<book_url>https://live.tourcms.com/reserve/r1.php?t=36&amp;a=5906&amp;w=5887&amp;people=1&amp;ty=d&amp;pro=215&amp;k=215dca0e7cc4</book_url>
+<start_time>08:30</start_time>
+<end_time>16:30</end_time><price_1>395.00</price_1>
+<price_1_display>US&amp;#36;395</price_1_display>
+<price_2>790.00</price_2>
+<price_2_display>US&amp;#36;790</price_2_display>
+</date>
+</dates_and_prices>
+</response>

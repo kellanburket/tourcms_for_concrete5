@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btSubtoursWidget">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		
+		<field name="tour_name" type="C" size="255">
+		</field>
+		
+		<field name="description" type="X">
+		</field>
+		
+		<field name="from_price" type="C" size="255">
+		</field>
+		
+		<field name="duration" type="C" size="255">
+		</field>
+		
+	</table>
+</schema>

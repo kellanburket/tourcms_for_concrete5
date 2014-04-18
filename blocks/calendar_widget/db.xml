@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btCalendarWidget">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		
+		<field name="tour_name" type="C" size="255">
+		</field>
+		
+		<field name="description" type="X2">
+		</field>
+		
+		<field name="highlights" type="X2">
+		</field>
+		
+		<field name="inclusions" type="X">
+		</field>
+		
+		<field name="exclusions" type="X">
+		</field>
+		
+		<field name="note" type="X">
+		</field>		
+
+		<field name="summary" type="X2">
+		</field>
+				
+		<field name="from_price" type="C" size="255">
+		</field>
+		
+		<field name="duration" type="C" size="255">
+		</field>
+		
+	</table>
+</schema>

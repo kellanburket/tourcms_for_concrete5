@@ -1,0 +1,1257 @@
+/* smaller screens */
+
+@media only screen
+and (max-height : 900px) {
+	
+
+/* fonts */
+
+.mapsWrap h3 a {
+	font-family: "LatoRegular", sans-serif;	
+}	
+
+/* header */
+
+
+.tour .primary h1,
+.collection h1 {
+    margin-bottom: 9px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+h2 {
+	font-size: 16px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+.column.tertiary h3, .column.primary h3 {
+	font-size: 13px;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+h5 {
+	font-size: 12px;
+}
+
+/* page */
+
+#page,
+.header .inner,
+.search .inner,
+#footer .inner {
+	width: 954px;	
+}
+
+/* index  not for use in prodcution */
+
+.index .columnWrap {
+	width: 972px;
+}
+
+.index .columnWrap .column {
+	width: 225px;
+}
+
+/* header */
+
+.header {
+	padding-bottom: 18px;
+}
+
+/* navigation */
+
+.navigation {
+	position: absolute;
+	top: 40px;
+	left: 162px;
+}
+
+.navigation li {
+	float: left;
+	display: inline;
+	margin-right: 18px;
+}
+
+.header .navigation a {
+	text-transform: uppercase;
+	font-size: 14px;
+	color: #7f7f7f;
+	display: block;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.header .navigation a:hover,
+.navigation .current a {
+	color: #575757;
+	border-bottom: 2px solid #575757;
+	text-decoration: none;
+}
+
+/* options */
+
+.options {
+	right: 93px;
+}
+
+.options a {
+	display: block;
+	text-shadow: 0 1px 0 #fff;
+	color: #7f7f7f;
+	font-size: 12px;
+	line-height: 27px;
+	padding: 0 9px;
+}
+
+.dropDown {
+	position: relative;
+}
+
+.dropDown .selected {
+	background-image: url(/themes/gl/images/wedge.png);
+	background-repeat: no-repeat;
+	background-position: right 12px;
+	padding-right: 18px
+}
+
+.myAccount .selected {
+	background-position: 77px 12px;
+}
+
+.currency .selected {
+	background-position: 67px 12px;
+}
+
+.dropDown .active {
+	background-color: #fff;
+	box-shadow: 0 0 1px 0 #d0d0d0;
+	text-decoration: none;
+	position: relative;
+	z-index: 10px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.dropDown .nested {
+	position: absolute;
+	top: 27px;
+	right: -1px;
+	background-color: #fff;
+	width: 108px;
+	border: 1px solid #eee;
+	z-index: 9;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-border-radius-topright: 0;
+	-webkit-border-top-right-radius: 0;
+	border-top-right-radius: 0;
+	
+	display: none;
+}
+
+.nested li {
+	float: none;
+	border: none;
+	padding: 0;
+}
+
+.nested li a {
+	border: none;
+	line-height: 27px;
+	padding: 3px 9px;
+}
+
+.nested li a:hover {
+	background-color: #fafafa;
+}
+
+.currency a span {
+	font-size: 14px;
+	line-height: 18px;
+	color: #a1a1a1;
+	margin-right: 3px;
+}
+
+/* basketCount */
+
+.basketCount {
+	padding: 0 9px;
+}
+
+/* sectionHeader */
+
+.heroHeader {
+	width: 954px;
+}
+
+/* search */
+
+.search {	
+	padding: 0 0 36px 0;
+}
+
+.search h1 {
+	font-size: 36px;
+}
+
+.search p {
+	font-size: 18px;
+}
+
+.autocomplete  {
+	width: 414px;
+	margin: 0 0 0 243px;
+}
+
+.autocomplete .text {
+	width: 394px;
+}
+
+.search .autocomplete ul {
+	width: 412px;
+}
+
+/* searchRefine */
+
+.search .searchRefine {
+	position: relative;
+	margin-bottom: -27px;
+}
+
+.searchRefine img {
+	width: 954px;
+	height: 178px;
+}
+
+.searchRefine .overlay {
+	
+}
+
+.searchRefine .column {
+    background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 3px;
+	padding: 3px;
+	box-shadow: 0 0 3px 0 #000;
+}
+
+.searchRefine .autocomplete  {
+    width: 432px;
+    margin: 0 9px 0 0;
+}
+
+.searchRefine .autocomplete ul  {
+   width: 432px;
+}
+
+.searchRefine .autocomplete .text  {
+    width: 423px;
+    box-shadow: 0 0 0 0;
+    background-position: 396px 9px;
+    border: none;
+    padding-left: 9px;
+   	box-shadow: 0 0 0 1px #737373;
+}
+
+.searchRefine .dateSelector {
+	margin-right: 9px;
+}
+
+.dateSelector .text {
+	width: 90px;
+	background-image: url(/themes/gl/images/calendar.png);
+	background-repeat: no-repeat;
+	background-position: 79px 17px;
+	border: none;
+	height: 45px;
+	padding: 0 0 0 9px;
+	box-shadow: 0 0 0 1px #737373;
+	color: #A1A1A1;
+	font-size: 14px;
+}
+
+.searchRefine .submit {
+	float: left;
+	display: inline;
+}
+
+/* hero */
+
+.hero {
+	height: 486px;
+	margin-bottom: 9px;
+}
+
+.collectionWrap {
+	width: 2916px;
+	position: absolute;
+}
+
+.collection {
+	width: 972px;
+}
+
+.collection_3 {
+	left: 0;
+}
+
+.collection_1 {
+	left: 972px;
+}
+
+.collection_2 {
+	left: 1944px;
+}
+
+.collection .column {
+	width: 486px;
+}
+
+.collection .item {
+	margin: 0 18px 18px 0;
+}
+
+.collection .small {
+	width: 225px;
+}
+
+.collection .small img {
+	width: 225px;
+}
+
+.collection .medium {
+	width: 468px;
+}
+
+.collection .medium img {
+	width: 468px;
+}
+
+.collection .large {
+	width: 468px;	
+}
+
+.collection .large img {
+	width: 468px;
+}
+
+.collection h2 a {
+	font-size: 18px;
+	margin: 18px;
+	color: #fff;
+	display: block;
+}
+
+.collection .small h2 a {
+	font-size: 14px;
+	text-shadow: 0 1px 0 #000;
+}
+
+.mask {
+	width: 468px;
+	height: 468px;
+}
+
+.hero .controls {
+	width: 954px;
+}
+
+.hero .controls a {
+	width: 36px;
+	height: 68px;
+	top: 200px;
+}
+
+.controlsPrevious  {
+	background-image: url(/themes/gl/images/heroPrevious_resize.png);
+	left: -63px;	
+}
+
+.controlsNext {
+	background-image: url(/themes/gl/images/heroNext_resize.png);
+	right: -63px;
+}
+
+/* .collections */
+
+.collections .collection {
+	margin-bottom: 9px;
+}
+
+/* crossSell & relatedItems */
+
+.crossSell {
+	width: 972px;
+}
+
+.crossSell .part {	
+	margin-bottom: 18px;
+}
+
+.crossSell .item {
+	min-height: 265px;
+	width: 306px;
+}
+
+.crossSell .item img {
+	width: 306px;
+}
+
+#page .relatedItems .item  {
+	min-height: 296px;
+}
+
+/* destinations */
+
+.mapsWrap {
+	position: relative;
+	width: 972px;
+}
+
+.mapsWrap .column {
+	width: 182px;
+	margin-right: 11px;
+}
+
+.mapsWrap a img {
+	width: 182px;
+	height: auto;
+}
+
+.places {
+	margin: 18px 0;
+}
+
+.places .listOveflow {
+	width: 972px;
+}
+
+.places .listWrap {
+	width: 1944px;
+}
+
+.places .listWrap .column {
+	width: 972px;
+}
+
+.places .listWrap ul {
+	width: 225px;
+}
+
+/* results */
+
+.preview {
+	width: 306px;
+}
+
+.preview img {
+	width: 306px;
+	height: 204px;
+}
+
+.basket .overlay {
+	padding: 9px 18px;
+}
+
+.item .info {
+	width: 369px;
+}
+
+.item h2 {
+	margin-bottom: 9px;
+}
+
+.item p {
+	margin-bottom: 9px;
+	color: #737373;
+}
+
+.results .price {
+	margin-right: 9px;
+	width: 180px;
+}
+
+.results .price span,
+.relatedItems .price span {
+    font-size: 20px;
+    margin-right: 9px;
+}
+
+.results .price .strike,
+.relatedItems .price .strike {
+	color: #cf4504;
+	text-decoration: line-through;
+	font-size: 14px;
+}
+
+.results .details span,
+.relatedItems .details span {
+	line-height: 36px;
+	float: left;
+	display: inline;
+	position: relative;
+	top: -1px;
+}
+
+.results .duration span {
+	font-size: 14px;	
+}
+
+.item .actions {
+	clear: both;
+	position: relative;
+}
+
+.results .button {
+	margin-top: 9px;
+}
+
+/* displayOptions */
+
+.footerOptions {
+	padding: 18px 0 45px 0;
+}
+
+/* sidebar */
+
+.sidebar  {
+	width: 225px;
+}
+
+.tour .sidebar,
+.checkout .sidebar,
+.basket .sidebar,
+.alt .sidebar,
+.static .sidebar {
+	margin: 0 0 0 18px;
+}
+
+.places li a:hover,
+.places .selected a {
+	background-position: left -28px;
+	font-weight: normal;
+}
+
+.sidebar .category p {
+	margin: 9px 0;
+	color: #737373;
+}
+
+.sidebar .keyword {
+	padding-bottom: 0;
+	overflow: hidden;	
+}
+
+.keyword h3 {
+	margin-bottom: 9px;	
+}
+
+.keyword .field {
+	position: relative;
+	margin-bottom: 9px;
+}
+
+.keyword .text {
+	width: 151px;
+}
+
+.remove {
+	top: 18px;	
+}
+
+.basket .results .remove {
+	right: 18px;
+	left: auto;
+	bottom: 9px;
+	top: auto;
+}
+
+/* tour */
+
+.tour .primary {
+	width: 630px;
+}
+
+.social {
+	right: -342px;
+	width: 306px;
+	z-index: 9999px;
+}
+
+.gallery .window {
+	width: 630px;
+	min-height: 420px;
+}
+
+.gallery .window img {
+	width: 630px;
+	height: auto;
+}
+
+.thumbnails {
+	width: 630px;
+}
+
+.thumbnails img {
+	width: 72px;
+	height: auto;	
+}
+
+.tour .sidebar {
+	width: 306px;
+	padding: 9px 0 9px 0;
+}
+
+.tour .sidebar .bookings {
+	padding: 54px 18px 27px 18px;
+}
+
+.bookings h2 {
+	margin-bottom: 9px;
+}
+
+.tableNavigation .currentMonth {
+	width: 186px;
+}
+
+.datePicker .days {
+	width: 270px;
+}
+
+.days th,
+.days td {
+	width: 36px;
+	border-right: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+}
+
+.bookings .duration h4 {
+	width: 81px;
+}
+
+.bookings label {
+	width: 160px;
+	margin-right: 9px;
+	
+}
+
+.bookings .productType2 label {
+	width: 100%;
+}
+
+.bookings .price {
+	font-size: 20px;
+	top: -3px;
+}
+
+.bookings .subtotal div {
+	width: 198px;
+}
+
+.bookings .subtotal span,
+#page .orderTotal .price {
+	font-size: 20px;
+	line-height: 18px;
+	position: relative;
+	top: 2px;
+}
+
+#page .orderTotal .price {
+	top: 3px;
+}
+
+.basket .item .add {
+	right: 146px;
+}
+
+/* reviews */
+
+.tour .review .post {
+	width: 512px;
+}
+
+.review .userInfo {
+	width: 73px;
+}
+
+.userInfo img {
+	width: 63px;
+	height: 63px;
+}
+
+.reviewForm .submit {
+	padding-left: 144px;
+}
+
+/* basket */
+
+.basket .preview {
+	width: 225px;
+}
+
+.obasket .preview {
+	width: 189px;
+}
+
+.basket .preview img {
+	width: 225px;
+	height: 150px;
+}
+
+.basket .info {
+	width: 450px;
+}
+
+.basket .info h2 {
+	font-size: 14px;
+}
+
+.basket .results .details {
+	width: 468px;		
+}
+
+.basket .info ul {
+	width: 216px;
+}
+
+.basket .info h4 {
+	margin-right: 9px;
+}
+
+.basket .discount .text  {
+    width: 178px;
+}
+
+/* checkout */
+
+.checkout .primary {
+	width:  630px;
+}
+
+.orderOverview {
+	width: 954px !important;
+}
+
+.orderOverview table,
+.accountOrderHistory table {
+	width: 918px;
+}
+
+.orderOverview .itemHeader {
+	width: 522px;
+}
+
+.orderOverview .dateHeader {
+	width: 126px;
+}
+
+.orderOverview .timeHeader {
+	width: 90px;
+}
+
+.orderOverview .adultHeader {
+	width: 45px;
+}
+
+.orderOverview .childHeader {
+	width: 45px;	
+}
+
+.orderOverview .seniorStudent {
+	width: 90px;	
+}
+
+.orderOverview .totalHeader {
+	width: 108px;
+}
+
+.orderOverview td {
+	border-top: 1px solid #e8e8e8;
+	vertical-align: top;
+	padding: 18px 0;
+	color: #737373;
+}
+
+.orderOverview .isOption td {
+	border-top: 1px solid #fafafa;
+}
+
+.orderOverview td h4 {
+	padding-right: 36px;
+	line-height: 18px;
+	position: relative;
+	top: -1px;
+	color: #444;
+}
+
+.orderOverview td ul {
+	margin-top: 9px;
+}
+
+.orderOverview td li {
+	clear: both;
+	padding-right: 36px;
+}
+
+.orderOverview td h5 {
+	float: left;
+	display: inline;
+	clear: left;
+	margin-right: 9px;
+}
+
+.orderOverview .price {
+    font-size: 20px;
+    top: -3px;
+}
+
+.orderOverview .discount {
+	float: left;
+	display: inline;
+	margin-bottom: 18px;
+	width: 504px;
+}
+
+.discount .tabs .current a {
+	background-color: #f9f9f9;
+}
+
+.discount .pane {
+	padding: 18px;
+	background-color: #f9f9f9;
+	clear: both;
+	overflow: hidden;
+}
+
+.orderOverview .discount h3 {
+	text-transform: uppercase;
+}
+
+.orderOverview .discount p {
+	margin: 9px 0;	
+	color: #737373;
+}
+
+.orderOverview .tableFooter {
+	width: 324px;
+	float: right;
+	display: inline;
+	text-align: right;
+}
+
+.orderOverview .tableFooter label {
+	text-align: left;
+}
+
+.orderOverview .tableFooter .totalCost {
+	border-top: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	padding: 18px 0;
+	height: auto;
+}
+
+.orderOverview .tableFooter h4 {
+	float: left;
+	display: inline;
+	font-size: 18px;
+	color: #737373;
+}
+
+.orderOverview .tableFooter .total {
+    font-size: 24px;
+    line-height: 18px;
+    position: relative;
+    top: 2px;
+}
+
+.orderOverview .tableFooter .button {
+	float: right;
+	display: inline;
+}
+
+.orderOverview .smallPrint {
+	clear: both;
+	padding: 18px 0;
+	border-top: 1px solid #e8e8e8;	
+}
+
+.orderOverview .smallPrint p {
+	color: #737373;
+	font-size: 11px;
+	width: 684px;
+}
+
+.checkout .sidebar {
+	width: 306px;
+}
+
+.basketList h4  {
+	width: 180px;
+}
+
+/* notification */
+
+.notification {
+	width: 918px;
+}
+
+.notification .columnWrap {
+	width: 972px;
+}
+
+.notification .columnWrap .column {
+	width: 450px;
+}
+
+/* forms */
+
+.note a {
+	padding-left: 0; 
+}
+.note.newlinenote {
+	margin-left: 126px;
+}
+
+label {
+	width: 126px;
+}
+
+.obasket .checkout {
+	width: 711px;
+}
+
+.text {	
+	width: 232px;
+}
+
+.country select {
+	width: 243px;
+}
+
+.checkboxAlign, #page div.checkboxAlign.errorFocus  {
+	padding-left: 144px;
+}
+
+.payment .security .text {
+	width: 70px;
+}
+
+/* accountHeader */
+
+.accountHeader {
+	width: 972px;
+}
+
+.accountHeader .column {
+	min-height: 144px;
+}
+
+.accountHeader .profileOverview {
+	width: 594px;
+}
+
+.profileOverview img {
+	float: left;
+	display: inline;
+	margin-right: 18px;
+}
+
+.profileOverview h2 {
+	font-size: 18px;
+}
+
+.profileOverview h1 {
+	margin-bottom: 9px;
+}
+
+.profileOverview .viewProfile {
+	color: #58AEB0;
+	position: absolute;
+	right: 18px;
+	top: 25px;
+}
+
+.profileOverview .bio {
+	color: #737373;
+	font-size: 14px;
+}
+
+.profileOverview .counters {
+	background-color: rgba(3, 64, 109, 0.7);	
+	overflow: hidden;
+	border-radius: 3px;
+	position: absolute;
+	bottom: 18px;
+	left: 180px;
+}
+
+.profileOverview .counters a {
+	float: left;
+	display: inline;
+	background-repeat: no-repeat;
+	color: #fff;
+	font-size: 14px;
+	text-shadow: 0 1px 0 #055d9e;
+	
+	padding: 9px 18px 9px 27px;
+}
+
+.counters .reviewCount {
+	background-image: url(/themes/gl/images/reviewsCount.png);
+	background-position: 9px 11px;
+	border-right: 1px solid #3d5e77;
+}
+
+.counters .wishlistCount {
+	background-image: url(/themes/gl/images/wishlistCount.png);
+	background-position: 9px 13px;	
+}
+
+.accountHeader .profileFAQs {
+	width: 270px;
+}
+
+.profileFAQs h3 {
+	font-size: 16px;
+	margin-bottom: 9px;
+	position: relative;
+	top: 2px;
+}
+
+.profileFAQs li {
+    padding-left: 12px
+}
+
+/* accounts */
+
+.accounts .primary {
+	margin-bottom: 45px;
+}
+
+.accountDetails .column {
+	width: 450px;
+}
+
+#page .myTrips .results,
+#page .myWishList .results {
+	width: 693px;
+}
+
+.myTrips .results .preview,
+.myWishList .results .preview {
+	width: 288px;
+}
+
+.myTrips .results img,
+.myWishList .results img {
+	width: 288px;
+}
+
+.myTrips .recommendInfo,
+.myWishList .recommendInfo {
+	width: 189px;	
+}
+
+.accountSettings .part {
+	width: 450px;
+}
+
+.accountSettings .closeAccount {
+	width: 126px;
+}
+
+.accounts .submit {
+	padding-left: 144px;
+}
+
+/* contact */
+
+.contact .columnWrap {
+	width: 972px;
+}
+
+.contact .columnWrap .column {
+	width: 225px;
+}
+
+/* FAQ */
+
+.faq .sidebar,
+.about .sidebar {
+	width: 225px;
+	margin: 0 18px 36px 0;
+}
+
+.faq .primary {
+	width: 711px;
+}
+
+.faqDetail .primary {
+	width: 468px;
+	margin-bottom: 54px;
+}
+
+.faqDetail .tertiary,
+.about .tertiary {
+	width: 225px;
+	margin-bottom: 27px;
+}
+
+/* about */
+
+.about .primary {
+	width: 432px;
+	margin-bottom: 45px;
+}
+
+.about .primary li {
+	line-height: 27px;
+}
+
+.about .primary li span {
+	width: 189px;
+}
+
+.aboutTeam .primary li span {
+	width: 99px;
+}
+
+.about .primary li .region {	
+	width: 207px;
+}
+
+.aboutTeam .primary li .role {	
+	width: 297px;
+}
+
+.about .primary li.push {
+	margin-top: 18px;
+}
+
+/* static pages */
+
+.static .primary {
+	width: 675px;
+	margin-bottom: 45px;
+}
+
+/* dialog */
+
+.dialog {
+	width: 432px;
+	padding: 27px 18px;
+	margin-bottom: 144px;
+}
+
+.dialog .field {
+	width: 306px;
+}
+
+.dialog .text {
+	width: 295px;
+}
+
+.dialog .submit {
+	padding-top: 9px;
+	margin-bottom: 27px;
+}
+
+/* Wide dialog */
+
+.dialogwide {
+	width: 632px;
+}
+.dialogwide .field {
+	width: auto;
+}
+.dialogwide label {
+	width: 166px;
+}
+
+.dialogwide .text.shorter {
+	width: 205px;
+}
+
+.dialogwide .field h2, .dialogwide .field p {
+	margin-left: 186px;
+}
+
+/* footer */
+
+#footer {
+	padding: 18px 0;
+}
+
+#footer .column {
+	margin-right: 18px;
+	width: 225px;
+}
+
+#footer h4 {
+	line-height: 18px;
+}
+
+#footer .site {
+	width: 144px;
+}
+
+#footer .elsewhere ul {
+	width: 108px;
+}
+
+#footer .elsewhere .share {
+	margin-right: 9px;
+}
+
+#footer .addressBlock {
+	width: 108px;
+	padding: 0;
+	margin-right: 9px;
+}
+
+#footer .email {
+	margin-right: 0;
+}
+
+#footer .topDestinations ul,
+#footer .topActivities ul {
+	width: 108px;
+}
+
+#footer .topDestinations .first,
+#footer .topActivities .first {
+	margin-right: 9px;
+}
+
+#footer .branding {
+	width: 63px;
+	margin-right: 0;
+}
+
+#footer .logo {
+	background-image: url(/themes/gl/images/footerLogo_resize.png);
+	width: 63px;
+	height: 36px;
+	margin-top: 9px;
+}
+
+.contentWrap .container {
+	width: auto;
+}
+
+#directionsMap, #itineraryMap {
+	width:594px; 
+	height:444px;
+}
+
+
+}
