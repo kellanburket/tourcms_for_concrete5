@@ -1,10 +1,8 @@
 <?php
 defined('C5_EXECUTE') or die(_("Access Denied."));
-define("TOURCMS_SINGLE", "tourcms_single");
-define("TOURCMS_SUBGROUP", "tourcms_subgroup");
-define("TOURCMS_GROUP", "tourcms_group");
-$db = new mysqli;
-
+define("TOURCMS_SINGLE", "tour");
+define("TOURCMS_SUBGROUP", "tour_subgroup");
+define("TOURCMS_GROUP", "tour_group");
 
 class TourcmsCustomWidgetsPackage extends Package {
 
@@ -23,17 +21,19 @@ class TourcmsCustomWidgetsPackage extends Package {
 	 	} else {
 	 		$query = 'CREATE TABLE IF NOT EXISTS TourCMSAttributeValues ( 
 		 		tour_id int unsigned not null default 0,
+		 		tour_version_id int unsigned not null default 0,
 		 		akID int unsigned not null default 0,
 		 		avID int unsigned not null default 0,
-		 		primary key(tour_id, akID, avID));';
+		 		primary key(tour_id, tour_version_id, akID, avID));';
 
 		 	$db->query($query);
 		 	
 	 		$query = 'CREATE TABLE IF NOT EXISTS TourCMSAttributeKeys ( 
 		 		tour_id int unsigned not null default 0,
+		 		tour_version_id int unsigned not null default 0,
 		 		akID int unsigned not null default 0,
 		 		avID int unsigned not null default 0,
-		 		primary key(tour_id, akID, avID));';				
+		 		primary key(tour_id, tour_version_id, akID, avID));';				
 				
 		 	$db->query($query);
 		 	
@@ -82,18 +82,29 @@ class TourcmsCustomWidgetsPackage extends Package {
 			  $collection = CollectionType::getByHandle($collection_handle);
 			  if(!$collection || !intval($collection->getCollectionTypeID())) { 
 	          	$collection = CollectionType::add(array('ctHandle'=>$collection_handle,'ctName'=>t($collection_name)), $pkg);
-			   }
-		  }
+			   
+			  	$eaku = AttributeKeyCategory::getByHandle('collection');
+			  	$eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
+				$themeSet = $eaku->addSet('built_in', t('Categories Atributes'), $pkg);
+				  
+				$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
+				$ak1=CollectionAttributeKey::add($collection_handle, $args, $pkg)->setAttributeSet($themeSet);
+
+				$pageType = CollectionType::getByHandle($collection_handle);
+				$ak = CollectionAttributeKey::getByHandle('tour_id');
+				$pageType->assignCollectionAttribute($ak);
+		
+				$args = array('akHandle'=>'tour_version_id','akName'=>t('Tour Version ID'),'akIsSearchable'=>true);
+				$ak1=CollectionAttributeKey::add($collection_handle, $args, $pkg)->setAttributeSet($themeSet);
+
+				$pageType = CollectionType::getByHandle($collection_handle);
+				$ak = CollectionAttributeKey::getByHandle('tour_version_id');
+				$pageType->assignCollectionAttribute($ak);
+			}
+		}
 		  
 
-		  
-		  $eaku = AttributeKeyCategory::getByHandle('collection');
-		  $eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
-		  $themeSet = $eaku->addSet('built_in', t('Categories Atributes'),$pkg);
-		  $ak1=CollectionAttributeKey::add($image_file, array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>false),$pkg)->setAttributeSet($themeSet);
-			  	//$pageType = CollectionType::getByHandle($collection_handle);
-			  	//$ak= CollectionAttributeKey::getByHandle('tour_id');
-			  	//$pageType->assignCollectionAttribute($ak);
+
 	}
      
 }
