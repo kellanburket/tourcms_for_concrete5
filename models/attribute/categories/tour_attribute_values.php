@@ -35,7 +35,7 @@ public class TourCMSAttributeKey extends AttributeKey {
 	}
 
 
-	function getByHandle($akHandle) {
+	public static function getByHandle($akHandle) {
 		//This method simply needs to query the database for the ID of the matching handle and return getByID($akID)
 		$ak = CacheLocal::getEntry('tourcms_attribute_key_by_handle', $akHandle);
 		if (is_object($ak)) {

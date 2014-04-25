@@ -85,8 +85,8 @@ class TourcmsCustomWidgetsPackage extends Package {
 	
 		$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
 		CollectionAttributeKey::add('text', $args, $pkg)->setAttributeSet($themeSet);
-					
-		$args = array('akHandle'=>'tour_version_id','akName'=>t('Tour Version ID'),'akIsSearchable'=>true);
+		
+		$args = array('akHandle'=>'tour_category','akName'=>t('Tour Category'),'akIsSearchable'=>true);
 		CollectionAttributeKey::add('text', $args, $pkg)->setAttributeSet($themeSet);
 					
 		foreach ($collections as $collection_handle=>$collection_name) {		  
@@ -94,18 +94,17 @@ class TourcmsCustomWidgetsPackage extends Package {
 			if(!$collection || !intval($collection->getCollectionTypeID())) { 
 				
 				$collection = CollectionType::add(array('ctHandle'=>$collection_handle,'ctName'=>t($collection_name)), $pkg);
-				
 				$pageType = CollectionType::getByHandle($collection_handle);
 				$attribute_key = CollectionAttributeKey::getByHandle('tour_id');
 				$pageType->assignCollectionAttribute($attribute_key);
 					
 				$pageType = CollectionType::getByHandle($collection_handle);
-				$attribute_key = CollectionAttributeKey::getByHandle('tour_version_id');
+				$attribute_key = CollectionAttributeKey::getByHandle('tour_category');
 				$pageType->assignCollectionAttribute($attribute_key);
-
+								
 			}
 		}
-		  	
+		  
 
 
 	}

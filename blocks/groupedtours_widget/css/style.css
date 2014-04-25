@@ -1,0 +1,47 @@
+.subtour-wrap {
+	width: 100%;
+	border: 1px solid black;
+	margin-bottom: 10px;
+}
+.subtour-div {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+	padding: 1em;
+}
+.subtour-desc {
+	padding-left: 1.5em;	
+	line-height: 1.5em;
+}
+.subtour-pic {
+
+}
+
+.subtour-thumbnail {
+	width: 100%;
+}
+
+.subtour-table {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+}
+
+.select-button {
+	cursor: pointer;
+	font-size: 1.4em;
+	padding: 1em;
+	border: none;
+	border-radius: .5em;
+	color: white;
+}
+
+.subtour-td {
+	padding: 5px 10px 5px 0px;
+}
+
+.subtour-tr {
+	
+}
