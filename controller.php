@@ -67,27 +67,48 @@ class TourcmsCustomWidgetsPackage extends Package {
      
      public function install() {
 		$pkg = parent::install();
-		        
+
+		//Load TourCMS
+		Loader::packageElement('config', 'tourcms_custom_widgets'); 
+		Loader::model('attribute/categories/collection');
+
 		BlockType::installBlockTypeFromPackage('calendar_widget', $pkg); 
-		
 		BlockType::installBlockTypeFromPackage('subtours_widget', $pkg); 
-		//$allowSets = false;
-		//AttributeKeyCategory::add('widget', $allowSets, $pkg);		  
+
 		Loader::model('collection_types');
 		Loader::model('collection_attributes');
 		Loader::model('attribute/categories/collection');
+
+
+		$eaku = AttributeKeyCategory::getByHandle('collection');
+		
+		//adds attribute type to db and returns AttributeType
+		$atTourInfo = AttributeType::add('tour_info', t('Tour Info'), $pkg);
+		$eaku->associateAttributeKeyType($tour_info_type);
+
+		$tours = $this->get_tours();		
+		foreach($tours->tour as $tour) {
+			$tour_id_option = TourInfoTypeOption::add($atTourInfo, $tour->tour_name);
+		}
+		
+		//Not sure what these do.
+		//$eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
+		//$themeSet = $eaku->addSet('built_in', t('Categories Atributes'), $pkg);
+		//$tour_id_attr = CollectionAttributeKey::getByHandle('tour_id_select');
+
+		//if(!$tour_id_attr || !intval($tour_id_attr->getAttributeKeyID())) {
+		//$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
+		
+		//$tour_id_attr = CollectionAttributeKey::add('tour_info', $args, $pkg, 'SELECT');
+			
+		
+		//$tour_id_attr->setAttributeSet($themeSet);			
+		//}
 		
 		$collections = array(TOURCMS_SINGLE=>"Single Tour", TOURCMS_GROUP=>"Tour Grouping", TOURCMS_SUBGROUP=>"Tour Subgrouping");
 
-		$eaku = AttributeKeyCategory::getByHandle('collection');
-		$eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
-		$themeSet = $eaku->addSet('built_in', t('Categories Atributes'), $pkg);
-	
-		$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
-		CollectionAttributeKey::add('text', $args, $pkg)->setAttributeSet($themeSet);
-		
 		$args = array('akHandle'=>'tour_category','akName'=>t('Tour Category'),'akIsSearchable'=>true);
-		CollectionAttributeKey::add('text', $args, $pkg)->setAttributeSet($themeSet);
+		CollectionAttributeKey::add('tour_info', $args, $pkg)->setAttributeSet($themeSet);
 					
 		foreach ($collections as $collection_handle=>$collection_name) {		  
 			$collection = CollectionType::getByHandle($collection_handle);
@@ -107,6 +128,44 @@ class TourcmsCustomWidgetsPackage extends Package {
 		  
 
 
+	}
+
+	
+	public function get_tours() {
+		$tourcms = new TourCMS(0, SiteConfig::get("api_private_key"), "simplexml");
+		$channel_id = SiteConfig::get("channel_id");
+		
+		$results = $tourcms->search_tours('', $channel_id);
+		return $results;		
+	}
+	
+	public function get_categories() {
+		$tourcms = new TourCMS(0, SiteConfig::get("api_private_key"), "simplexml");
+		$channel_id = SiteConfig::get("channel_id");
+		
+		$categories = array();		
+		$results = $tourcms->search_tours('', $channel_id);
+		foreach ($results->tour as $tour) {
+			$t = $tourcms->show_tour($tour->tour_id, $channel_id);
+			$groups = $t->tour->categories;
+			
+			foreach ($groups->group as $group) {
+				$values = $group->values->value;
+				$parser = xml_parser_create();
+				xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1); 
+				$cats = $group->values->asXML();
+				
+				xml_parse_into_struct($parser, $cats, $values);
+				xml_parser_free($parser);
+				foreach ($values as $value) {
+					if ($value['type'] == 'complete') {
+						$categories[] = $value['value'];   
+					}
+				}
+			}	
+		}
+		
+		return array_unique($categories);		
 	}
      
 }

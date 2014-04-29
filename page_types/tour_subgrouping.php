@@ -2,14 +2,24 @@
 	defined('C5_EXECUTE') or die(_("Access Denied."));
 	define("THEME_BODY_CLASS", "tour_details");
 	Loader::packageElement('config', 'tourcms_custom_widgets'); 
-	$category = strtolower(preg_replace('#\s#', '+', $c->getAttribute('tour_category')));
+	Loader::model('attribute/categories/collection');
+	$ak = CollectionAttributeKey::getByHandle('tour_category');
+	//print_r($ak);
+	$page = Page::getCurrentPage();
+	$reflect = new ReflectionClass($page);
+	$methods = $reflect->getMethod('getAttributeValueObject');
+	//print_r($methods);
+	
+	print_r($ak);
+	exit;
+	$cat = preg_replace('#\s#', '+', $page->getAttribute('tour_category'));
+	
+	//$category = $c->getAttribute('tour_category');// ;
+	//var_dump($c);
+	//var_dump($c->getAttribute();
+	//exit;
+	?>
 		
-	$tourcms = new TourCMS(0, SiteConfig::get("api_private_key"), "simplexml");
-	$channel_id = SiteConfig::get("channel_id");
-	
-	$results = $tourcms->search_tours('category='.$category, $channel_id);
-	
-	$tours = $results->tour; ?>
 
 	<style>
 	.list-item {
@@ -43,7 +53,7 @@
 
 
 	<div class="subtour-wrap">
-	<?php echo 'Category: '.$category; ?>
+	<?php echo 'Category: '.$cat; ?>
 		<div class="subtour-div subtour-pic">
 			<img class="subtour-thumbnail" src="<?php echo $tour->thumbnail_image; ?>">
 		</div>

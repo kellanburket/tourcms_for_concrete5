@@ -1,0 +1,49 @@
+<xml version="1.0">
+   <table name="atTourInfoSettings">
+    <field name="akID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED/>
+    </field>
+    <field name="akTourInfoAllowMultipleValues" type="tinyint" size="1">
+    </field>
+    <field name="akTourInfoOptionDisplayOrder" type="varchar" size="255">
+		<default value="display_asc"></default>
+    </field>
+    <field name="akTourInfoAllowOtherValues" type="tinyint" size="1">
+    </field>
+  </table>
+  
+  <table name="atTourInfoOptions">
+    <field name="ID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED />
+	  <autoincrement/>
+    </field>
+    <field name="akID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED />
+    </field>
+    <field name="tour_id" type="I" size="10">
+      <UNSIGNED />
+    </field>
+    <field name="tour_name" type="varchar" size="255">
+    </field>
+    <field name="displayOrder" type="I" size="10">
+      <UNSIGNED />
+    </field>
+    <field name="isEndUserAdded" type="tinyint" size="1">
+    </field>
+  </table>
+  
+  <table name="atTourInfoOptionsSelected">
+    <field name="avID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED />
+      <UNIQUE />
+    </field>
+    <field name="atSelectOptionID" type="I" size="10">
+      <KEY/>
+      <UNSIGNED />
+      <UNIQUE />
+    </field>
+  </table>
