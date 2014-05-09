@@ -1,0 +1,45 @@
+.control-group {
+	display: inline-block;
+	
+}
+
+#controls {
+	margin-top: 20px;
+}
+
+button[name="js_callback"] {
+	padding: 6px!important;
+}
+
+.control-label {
+	margin-right: 5px!important;;
+	display: inline!important;
+}
+
+.cc-pane-headnote {
+	background: #ffffff;
+	text-align: center;
+	padding-top: 25px;
+}
+
+#active-tabs {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	border: 1px solid #aaaaaa;
+	background: #ffffff;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.processed_tab {
+	padding: 10px;
+	display: inline-block;
+	background: #aaaaaa;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.processed_tab:hover { 
+	background: #00ff11;
+}

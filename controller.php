@@ -3,59 +3,18 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 define("TOURCMS_SINGLE", "tour_single");
 define("TOURCMS_SUBGROUP", "tour_subgrouping");
 define("TOURCMS_GROUP", "tour_grouping");
+define('PLATFORM', 'Concrete5');
+define('PKG', 'tourcms_custom_widgets');
 
 class TourcmsCustomWidgetsPackage extends Package {
 
-     protected $pkgHandle = 'tourcms_custom_widgets';
-     protected $appVersionRequired = '5.5.0';
-     protected $pkgVersion = '1.0';
+     protected $pkgHandle = PKG;
+     protected $pkgVersion = '1.04';
 
-
-	 public function __construct() {
-	 	//parent::__construct();
-	 	
-	 	@ $db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-	 	
-	 	if($db->connect_errno) {
-	 		printf("Connection Failed!: %s\n", $db->connect_error);
-	 	} else {
-	 		$query = 'CREATE TABLE IF NOT EXISTS TourCMSAttributeValues ( 
-		 		tour_id int unsigned not null default 0,
-		 		tour_version_id int unsigned not null default 0,
-		 		akID int unsigned not null default 0,
-		 		avID int unsigned not null default 0,
-		 		primary key(tour_id, tour_version_id, akID, avID));';
-
-		 	$db->query($query);
-		 	
-	 		$query = 'CREATE TABLE IF NOT EXISTS TourCMSAttributeKeys ( 
-		 		tour_id int unsigned not null default 0,
-		 		tour_version_id int unsigned not null default 0,
-		 		akID int unsigned not null default 0,
-		 		avID int unsigned not null default 0,
-		 		primary key(tour_id, tour_version_id, akID, avID));';				
-				
-		 	$db->query($query);
-		 	
-		 	$query = 'CREATE TABLE IF NOT EXISTS TourCMSSearchIndexAttributes (
-			  tour_id int unsigned NOT NULL DEFAULT 0,
-			  ak_meta_title text,
-			  ak_meta_description text,
-			  ak_meta_keywords text,
-			  ak_icon_dashboard text,
-			  ak_exclude_nav tinyint(4) DEFAULT 0,
-			  ak_exclude_page_list tinyint(4) DEFAULT 0,
-			  ak_header_extra_content text,
-			  ak_exclude_search_index tinyint(4) DEFAULT 0,
-			  ak_exclude_sitemapxml tinyint(4) DEFAULT 0,
-			  PRIMARY KEY (cID)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
-			
-			$db->query($query);
-
-
-	 	}
-	 }
+	public function upgrade() {
+		$pkg = $this;
+		parent::upgrade();
+	}
 
      public function getPackageDescription() {
           return t("TourCMS Widgets Package");
@@ -65,71 +24,99 @@ class TourcmsCustomWidgetsPackage extends Package {
           return t("Tourcms Widgets");
      }
      
-     public function install() {
-		$pkg = parent::install();
-
-		//Load TourCMS
-		Loader::packageElement('config', 'tourcms_custom_widgets'); 
-		Loader::model('attribute/categories/collection');
-
+	 private function installBlocks($pkg) {
+		BlockType::installBlockTypeFromPackage('tour_switchbox', $pkg); 
+		//echo 'tour switchbox installed';
 		BlockType::installBlockTypeFromPackage('calendar_widget', $pkg); 
-		BlockType::installBlockTypeFromPackage('subtours_widget', $pkg); 
+		//echo 'calendar widget installed';
 
+		//$switchbox = BlockType::getByHandle('tour_switchbox', $pkg)->getController(); 
+		//$switchbox->install();
+	 }
+	 
+	 private function installModels($pkg) {
+		Loader::library('tourcms/config', PKG); 
+		
+		//Load custom pages and types
+		Loader::model('attribute/categories/collection');
 		Loader::model('collection_types');
 		Loader::model('collection_attributes');
-		Loader::model('attribute/categories/collection');
-
-
-		$eaku = AttributeKeyCategory::getByHandle('collection');
-		
+		Loader::model('attribute/categories/collection');		
+		$akCat = AttributeKeyCategory::getByHandle('collection');
 		//adds attribute type to db and returns AttributeType
 		$atTourInfo = AttributeType::add('tour_info', t('Tour Info'), $pkg);
-		$eaku->associateAttributeKeyType($tour_info_type);
+		$akCat->associateAttributeKeyType($atTourInfo);
+
+		$args = array('akHandle'=>'tour_name','akName'=>t('Tour Name'),'akIsSearchable'=>true);
+		$akTourName = CollectionAttributeKey::add('tour_info', $args, $pkg);
 
 		$tours = $this->get_tours();		
 		foreach($tours->tour as $tour) {
-			$tour_id_option = TourInfoTypeOption::add($atTourInfo, $tour->tour_name);
+			$tour_id_option = TourInfoAttributeTypeOption::add($akTourName, $tour->tour_id, $tour->tour_name);
 		}
 		
-		//Not sure what these do.
-		//$eaku->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);			  	
-		//$themeSet = $eaku->addSet('built_in', t('Categories Atributes'), $pkg);
-		//$tour_id_attr = CollectionAttributeKey::getByHandle('tour_id_select');
-
-		//if(!$tour_id_attr || !intval($tour_id_attr->getAttributeKeyID())) {
-		//$args = array('akHandle'=>'tour_id','akName'=>t('Tour ID'),'akIsSearchable'=>true);
-		
-		//$tour_id_attr = CollectionAttributeKey::add('tour_info', $args, $pkg, 'SELECT');
-			
-		
-		//$tour_id_attr->setAttributeSet($themeSet);			
-		//}
-		
-		$collections = array(TOURCMS_SINGLE=>"Single Tour", TOURCMS_GROUP=>"Tour Grouping", TOURCMS_SUBGROUP=>"Tour Subgrouping");
-
 		$args = array('akHandle'=>'tour_category','akName'=>t('Tour Category'),'akIsSearchable'=>true);
-		CollectionAttributeKey::add('tour_info', $args, $pkg)->setAttributeSet($themeSet);
-					
+		$akTourCategory = CollectionAttributeKey::add('tour_info', $args, $pkg);
+
+		$categories = $this->get_categories();
+		$i = 0;
+		foreach($categories as $category) {
+			$tour_id_option = TourInfoAttributeTypeOption::add($akTourCategory, $i++, $category);
+		}
+		
+		$collections = array(TOURCMS_SINGLE=>"Single Tour", TOURCMS_GROUP=>"Tour Grouping", TOURCMS_SUBGROUP=>"Tour Subgrouping");					
 		foreach ($collections as $collection_handle=>$collection_name) {		  
 			$collection = CollectionType::getByHandle($collection_handle);
-			if(!$collection || !intval($collection->getCollectionTypeID())) { 
-				
+			if(!$collection || !intval($collection->getCollectionTypeID())) { 				
 				$collection = CollectionType::add(array('ctHandle'=>$collection_handle,'ctName'=>t($collection_name)), $pkg);
 				$pageType = CollectionType::getByHandle($collection_handle);
-				$attribute_key = CollectionAttributeKey::getByHandle('tour_id');
-				$pageType->assignCollectionAttribute($attribute_key);
-					
-				$pageType = CollectionType::getByHandle($collection_handle);
-				$attribute_key = CollectionAttributeKey::getByHandle('tour_category');
-				$pageType->assignCollectionAttribute($attribute_key);
-								
+				$pageType->assignCollectionAttribute($akTourCategory);
+				$pageType->assignCollectionAttribute($akTourName);								
+				$pageType->saveComposerPublishTargetAll();
 			}
 		}
-		  
-
-
+	 
+	 }
+	 
+	 private function installSingles($pkg) {
+	 	Loader::model('single_page');
+		$cak = CollectionAttributeKey::getByHandle('icon_dashboard');
+        /*
+		$p = SinglePage::add('/dashboard/tour_tab_form/', $pkg);
+        if (is_object($p) && $p->isError() !== false) {
+            $p->update(array('cName' => t('Tour Tab Settings'), 
+                'cDescription' => 'Manage configuration of tabbed items on tour pages.'));
+        }
+		*/
+        $p = SinglePage::add('/dashboard/tour_tab_form/settings', $pkg);
+        if (is_object($p) && $p->isError() !== false) {
+            $p->update(array('cName' => t('Tour Tab Settings'))); 
+            if (is_object($cak)) {
+            	$p->setAttribute('icon_dashboard', 'icon-wrench');
+            }
+        }
+	 }
+	 
+     public function install() {
+		$pkg = parent::install();
+		//echo 'parent installed<br>';
+		$this->installSingles($pkg);		
+		//echo 'singles installed<br>';
+		$this->installModels($pkg);
+		//echo 'models installed<br>';
+		$this->installBlocks($pkg);
+		//echo 'blocks installed<br>';		
 	}
 
+	function add_db_xml($xmlFile) {
+    	if(file_exists($xmlFile)) {
+			$db = Loader::db();
+			Package::installDB($xmlFile);
+		} else {
+			echo 'File Does Not Exist';
+			exit;
+		}
+	}
 	
 	public function get_tours() {
 		$tourcms = new TourCMS(0, SiteConfig::get("api_private_key"), "simplexml");
@@ -167,6 +154,22 @@ class TourcmsCustomWidgetsPackage extends Package {
 		
 		return array_unique($categories);		
 	}
+	
+	private function set_package_tool($tool_name){
+		$tool_helper = Loader::helper('concrete/urls');
+		$this->set ( $tool_name, $tool_helper->getToolsURL($tool_name, 'tourcms_custom_widgets'));
+	}
+	
+	private function set_block_tool($tool_name){
+		$tool_helper = Loader::helper('concrete/urls');
+		$bt = BlockType::getByHandle($this->btHandle);
+		$this->set ($tool_name, $tool_helper->getBlockTypeToolsURL($bt).'/'.$tool_name);
+	}
+
+	function uninstall() {
+        $db = Loader::db();
+        parent::uninstall();
+    }
      
 }
 ?>

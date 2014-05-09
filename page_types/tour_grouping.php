@@ -1,6 +1,7 @@
 <?php 
 defined('C5_EXECUTE') or die(_("Access Denied."));
-Loader::packageElement('config', 'tourcms_custom_widgets'); 
+Loader::library('tourcms/config', 'tourcms_custom_widgets'); 
+
 $tourcms = new TourCMS(0, SiteConfig::get("api_private_key"), "simplexml");
 $channel_id = SiteConfig::get("channel_id");
 $site_url = View::url('/');

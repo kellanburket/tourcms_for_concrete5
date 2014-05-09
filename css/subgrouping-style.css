@@ -1,0 +1,62 @@
+.list-item {
+	display: inline-block;
+	width: 290px!important;
+	position: relative;
+	box-sizing: border-box;
+}
+#content {
+	background: none!important;
+	padding: 0!important;
+	width: auto;
+	height: auto;
+}
+
+.list-area {
+	width: auto;
+	float: none;
+	margin: 0;
+}	
+
+img.subtour-thumbnail {
+	width: 100%!important;
+	border-radius: 15px;
+	-webkit-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+	border: 2px solid #fff;
+}
+
+figure {
+	width: auto!important;
+}
+
+.subtour-div { 
+	width: 50%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.subtour-desc {
+	width: 48%;
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	padding-left: 25px;
+}
+
+.subtour-wrap {
+	margin-bottom: 25px;
+}
+
+.subtour-h3 {
+	color: #03335f;
+	font-size: 31.5px;
+}
+
+.select-button {
+	float: right;
+}
+
+.subtour-td {
+	width: 100px;
+}

@@ -1,10 +1,48 @@
 <?xml version="1.0"?>
 <schema version="0.3">
-	<table name="tourcms_custom_widgets">
-		<field name="widgets_id" type="I">
+	<table name="tourcmsCustomWidgets">
+		<field name="widgets_id" type="I" size="10">
 			<key />
 			<autoincrement />
 			<unsigned />
 		</field>	
+	</table>
+	<table name="tourSwitchboxTabs">
+		<field name="tab_id" type="I" size="10">
+			<key />
+			<autoincrement />
+			<unsigned />
+		</field>
+		<field name="name" type="C" size="255">
+			<unique />
+		</field>
+		<field name="isActive" type="I1" size="1">
+		</field>		
+	</table>
+	<table name="tourSwitchboxFields">
+		<field name="field_id" type="I" size="10">
+			<key />
+			<autoincrement />
+			<unsigned />
+		</field>
+		<field name="name" type="C" size="255">
+			<unique />
+		</field>
+		<field name="tourcms_handle" type="C" size="255">
+			<unique />
+		</field>					
+	</table>
+	<table name="tourSwitchboxRelationships">
+		<field name="id" type="I" size="10">
+			<key />
+			<autoincrement />
+			<unsigned />
+		</field>
+		<field name="field_id" type="I" size="10">
+			<unsigned />
+		</field>
+		<field name="tab_id" type="I" size="10">
+			<unsigned />
+		</field>
 	</table>
 </schema>

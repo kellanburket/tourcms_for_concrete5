@@ -1,6 +1,6 @@
 <?php
 
-public class TourCMSAttributeKey extends AttributeKey {
+class TourCMSAttributeKey extends AttributeKey {
 	
 	protected $searchIndexFieldDefinition = 'tour_id I(11) UNSIGNED NOTNULL DEFAULT 0 PRIMARY';
 
@@ -140,10 +140,9 @@ public class TourCMSAttributeKey extends AttributeKey {
 		
 		$db->Execute('delete from TourCMSAttributeValues where akID = ?', array($this->getAttributeKeyID()));
 	}
-
 }
 
-public class TourCMSAttributeValue() {
+class TourCMSAttributeValue {
 	
 	public function setTour($tour) {
 		//Whatever object you're binding these attribute to, you'll want to create a setter for this object. e.g. The CollectionAttributeValue category has a setter named setCollection. 
@@ -167,11 +166,11 @@ public class TourCMSAttributeValue() {
 		));
 				
 			// Before we run delete() on the parent object, we make sure that attribute value isn't being referenced in the table anywhere else
-			$num = $db->GetOne('select count(avID) from TourCMSAttributeValues where avID = ?', array($this->getAttributeValueID()));
-			if ($num < 1) {
+		$num = $db->GetOne('select count(avID) from TourCMSAttributeValues where avID = ?', array($this->getAttributeValueID()));
+		if ($num < 1) {
 			parent::delete();
 		}
+	}
 
 }
-
 ?>
